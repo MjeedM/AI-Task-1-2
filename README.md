@@ -121,4 +121,60 @@ Using Etcher, we will flash the image on a micro SD card throgh SD Card Reader U
 
 <a name= "4"></a>
 ## 2.2 Installing ROS 2 Foxy Fitzroy
-In the same way that we installed ROS Humble Hawksbill previously, we can install Foxy Fitzroy; by copying the commands from the Debian packages on the official website and pasting them into the Xubuntu terminal.
+- We should installe Foxy Fitzroy release because it supports Ubuntu Linux - Focal Fossa (20.04).
+- Copying the commands from the Debian packages from this link (https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+
+### Set local
+Making sure I have a locale that supports `POSIX`.
+```
+locale  # check for UTF-8
+
+sudo apt update && sudo apt install locales
+sudo locale-gen en_US en_US.UTF-8
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+locale  # verify settings
+```
+### Setup Sources
+Enable the Ubuntu Universe repository
+```
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+```
+Add the ROS 2 apt repository to your system.
+```
+sudo apt update && sudo apt install curl gnupg2 lsb-release
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
+```
+Adding the repository to the sources list.
+```
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(source /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+```
+### Install ROS 2 packages
+Updating the apt repository caches after setting up the repositories.
+```
+sudo apt update
+```
+Desktop Install: ROS, RViz, demos, tutorials.
+```
+sudo apt install ros-foxy-desktop
+```
+### Environment setup
+Set up the environment by sourcing the following file.
+```
+source /opt/ros/foxy/setup.bash
+```
+### Trying some examples
+In one terminal, source the setup file and then run a C++ `talker`:
+```
+source /opt/ros/foxy/setup.bash
+ros2 run demo_nodes_cpp talker
+```
+In another terminal source the setup file and then run a Python `listener`:
+```
+source /opt/ros/foxy/setup.bash
+ros2 run demo_nodes_py listener
+```
+We should see the talker saying that it’s Publishing messages and the listener saying I heard those messages. This verifies both the C++ and Python APIs are working properly
+
