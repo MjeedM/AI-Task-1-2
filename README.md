@@ -121,8 +121,8 @@ Using Etcher, we will flash the image on a micro SD card throgh SD Card Reader U
 
 <a name= "4"></a>
 ## 2.2 Installing ROS 2 Foxy Fitzroy
-- We should installe Foxy Fitzroy release because it supports Ubuntu Linux - Focal Fossa (20.04).
-- Copying the commands from the Debian packages from this link (https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+- We should install Foxy Fitzroy release because it supports Ubuntu Linux - Focal Fossa (20.04).
+  By opying the commands from the Debian packages from this link (https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
 ### Set local
 Making sure I have a locale that supports `POSIX`.
