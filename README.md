@@ -176,5 +176,5 @@ In another terminal source the setup file and then run a Python `listener`:
 source /opt/ros/foxy/setup.bash
 ros2 run demo_nodes_py listener
 ```
-We should see the talker saying that it’s Publishing messages and the listener saying I heard those messages. This verifies both the C++ and Python APIs are working properly
+We should see the talker saying that it’s Publishing messages and the listener saying I heard those messages. This verifies both the C++ and Python APIs are working properly.
 
