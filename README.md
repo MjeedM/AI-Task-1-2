@@ -22,7 +22,7 @@ First, I have installed a second drive (SSD) to take advantage of the Dual-Booti
 ### Step 2
 Then I downloaded Ubuntu 22.04 LTS and Etcher.
 ### Step 3
-Using Etcher, I installed Ubuntu on a USB flash drive.
+Using Etcher, I flashed Ubuntu on a USB drive.
 ### Step 4
 After creating a bootable USB flash drive, I restart the computer, then I chose to boot from the USB drive.
 ### Step 5
@@ -103,12 +103,12 @@ Using Etcher, we will flash the image on a micro SD card throgh SD Card Reader U
 ### Step 3
 - If our Jetson Nano was A02 then we should plug in the SD card, and after its booting, it will take us to the XUbuntu installation screen.
 
-  To find out which .dtb file is compatible with our Jetson Nano run the following on the it:
+  To find out which .dtb file is compatible with our Jetson Nano run the following on its terminal:
 
   ``cat /sys/firmware/devicetree/base/compatible
   ``
 
-- In case of the Jetson Nano was B01, then from our SD card we should go to boot > extlinux > extlinux.conf then open it in terminal
+- In case of the Jetson Nano was B01, then from our SD card we should go to *[boot > extlinux > extlinux.conf]* then open it in terminal
   and enter the command:
   ``sudo vim extlinux.conf
   ``
